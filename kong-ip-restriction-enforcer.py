@@ -1,9 +1,14 @@
 import requests
 import argparse
+import smtplib
+from mail import email
 
 parser = argparse.ArgumentParser(description='Kong IP-Restriction Enforcer')
 
 parser.add_argument('-u','--url', help='Kong Server Location starting with http...',required=True)
+parser.add_argument('-e','--email', help='Email From Address',required=True)
+parser.add_argument('-t','--to', help='Email To Address',required=True)
+parser.add_argument('-s','--smtp', help='SMTP Server',required=True)
 args = parser.parse_args()
 
 try:
@@ -13,12 +18,16 @@ try:
 
 except requests.exceptions.HTTPError as e:
         print ('Http Error:', e)
+        email (args.url,'Http Error',args.email,args.to,str(e),args.smtp)
 except requests.exceptions.Timeout as e:
         print ('Timeout Error:', e)
+        email (args.url,'Timeout Error',args.email,args.to,str(e),args.smtp)
 except requests.exceptions.ConnectionError as e:
         print ('Error Connecting:', e)
+        email (args.url,'Error Connecting',args.email,args.to,str(e),args.smtp)
 except requests.exceptions.RequestException  as e:
         print('Something went wrong trying to fulfill the request -->', e)
+        email (args.url,'Something went wrong trying to fulfill the request -->',args.email,args.to,str(e),args.smtp)
    
 else:
 
