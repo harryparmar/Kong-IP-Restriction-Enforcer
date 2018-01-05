@@ -29,8 +29,7 @@ def email(url, subject, sender, to, body, server):
     part2 = MIMEText(html, 'html')
 
     # Attach parts into message container.
-    # According to RFC 2046, the last part of a multipart message, in this case
-    # the HTML message, is best and preferred.
+
     msg.attach(part1)
     msg.attach(part2)
 
