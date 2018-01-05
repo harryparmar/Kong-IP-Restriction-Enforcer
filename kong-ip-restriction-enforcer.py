@@ -1,6 +1,6 @@
 import requests
 import argparse
-import smtplib
+
 from mail import email
 from chat import slack
 
