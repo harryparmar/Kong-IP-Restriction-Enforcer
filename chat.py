@@ -13,5 +13,5 @@ def slack(token, channel_id, message):
          channel=channel_id, 
          text=message, 
          username='Kong-IP-Restriction-Enforcer', 
-         icon_emoji=':python:' 
+         icon_emoji=':getkong:' 
    )

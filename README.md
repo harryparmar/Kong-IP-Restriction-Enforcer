@@ -2,8 +2,9 @@
 Python Program to enforce Private IPv4 address spaces to APIs on Kong API Gateway server and email If server is down. Open source community has given us some great tools like Kong API Gateway (https://github.com/Kong/kong)  and Konga (https://github.com/pantsel/konga), now is my turn to contribute
 
 ## Prerequisites
-These libraries should be avaiable on your environment requests, argparse, smtplib and slackclient. If not then install with command
+These libraries should be available on your environment requests, argparse, smtplib and slackclient. If not then install with command
 python -m pip install SomePackage
+In addition add :getkong: emoji into your slack environment with slack customization or use preexisting emoji in chat.py
 
 ## Running the program
 Run with arguments -u (Kong server address) -e (from email) -t (to email) -s (smtp server) -st (slack token) -sc (slack channel)
